@@ -10,7 +10,7 @@ corresponding frontend to access your API.)
 
 ## Phase 1 - Create a new Rails project and set up the database
 
-To begin, create a new Rails project:
+To begin, create a new Rails project:rails new pokedex-rails-backend -G -T --database=postgresql --api --minimal
 
 ```shell
 rails new pokedex-rails-backend -G -T --database=postgresql --api --minimal
