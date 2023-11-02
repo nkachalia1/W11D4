@@ -12,7 +12,7 @@
 #  updated_at :datetime         not null
 #
 class Item < ApplicationRecord
-    validates :id, :name, :price, :happiness, :image_url, presence: true
+    validates :name, :price, :happiness, :image_url, presence: true
     validates :price, numericality: {greater_than_or_equal_to: 0 }
     validates :name, length: { maximum: 255 }
 
