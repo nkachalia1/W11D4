@@ -13971,3 +13971,43 @@ Processing by Api::PokemonController#types as */*
 Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.0ms | Allocations: 1470)
 
 
+Started GET "/api/pokemon/1" for ::1 at 2023-11-02 16:51:55 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::PokemonController#show as JSON
+  Parameters: {"band"=>{"name"=>"coldplay"}, "id"=>"1"}
+  [1m[36mPokemon Load (3.8ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/pokemon_controller.rb:41:in `show'
+Completed 200 OK in 106ms (Views: 1.9ms | ActiveRecord: 54.4ms | Allocations: 24554)
+
+
+Started GET "/api/pokemon" for ::1 at 2023-11-02 16:52:05 -0400
+Processing by Api::PokemonController#index as JSON
+  Parameters: {"band"=>{"name"=>"coldplay"}}
+  [1m[36mPokemon Load (2.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/api/pokemon_controller.rb:4:in `index'
+Completed 200 OK in 31ms (Views: 28.0ms | ActiveRecord: 2.2ms | Allocations: 8466)
+
+
+Started POST "/api/pokemon?number=3&name=akash&attack=10&defense=30&poke_type=fire&image_url=example.com&captured=true" for ::1 at 2023-11-02 16:53:21 -0400
+Processing by Api::PokemonController#create as JSON
+  Parameters: {"band"=>{"name"=>"coldplay"}, "number"=>"3", "name"=>"akash", "attack"=>"10", "defense"=>"30", "poke_type"=>"fire", "image_url"=>"example.com", "captured"=>"true"}
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 661)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: pokemon:
+  app/controllers/api/pokemon_controller.rb:52:in `pokemon_params'
+  app/controllers/api/pokemon_controller.rb:8:in `create'
+
+Started POST "/api/pokemon?number=3&name=akash&attack=10&defense=30&poke_type=fire&image_url=example.com&captured=true" for ::1 at 2023-11-02 16:58:51 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::PokemonController#create as JSON
+  Parameters: {"band"=>{"name"=>"coldplay"}, "number"=>"3", "name"=>"akash", "attack"=>"10", "defense"=>"30", "poke_type"=>"fire", "image_url"=>"example.com", "captured"=>"true"}
+Completed 400 Bad Request in 16ms (ActiveRecord: 0.0ms | Allocations: 8531)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: pokemon:
+  app/controllers/api/pokemon_controller.rb:52:in `pokemon_params'
+  app/controllers/api/pokemon_controller.rb:8:in `create'
+
