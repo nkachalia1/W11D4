@@ -9,4 +9,6 @@
 #
 class Move < ApplicationRecord
     validates :id, :name, presence: true
+    validates :name, length: { maximum: 255 }
+    validates :name, uniqueness: { message: "'%{value}' is already in use"}
 end
